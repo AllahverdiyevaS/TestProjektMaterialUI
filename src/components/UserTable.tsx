@@ -1,5 +1,5 @@
 import React from "react";
-import { usePlantsStore } from "../store/userStore";
+import { usePlantsStore } from "../store/plantsStore";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -27,25 +27,20 @@ const UserTable = () => {
         variant="outlined"
         sx={{
           margin: 2,
-          backgroundColor: "transparent",
-
           "& .MuiOutlinedInput-root": {
-            backgroundColor: "transparent",
-            "& fieldset": {
-              borderColor: "gray",
-            },
-            "&:hover fieldset": {
+            "& .MuiOutlinedInput-notchedOutline": {
               borderColor: "darkgray",
             },
-            "&.Mui-focused fieldset": {
-              borderColor: "green",
+            "&.Mui-focused": {
+              "& .MuiOutlinedInput-notchedOutline": {
+                borderColor: "green",
+              },
             },
           },
-          "& .MuiInputLabel-root": {
-            color: "gray",
-          },
-          "& .MuiInputLabel-root.Mui-focused": {
-            color: "green",
+          "& .MuiInputLabel-outlined": {
+            "&.Mui-focused": {
+              color: "green",
+            },
           },
         }}
       />
@@ -55,7 +50,7 @@ const UserTable = () => {
             <TableRow>
               <TableCell>ID</TableCell>
               <TableCell align="right">NAME</TableCell>
-              <TableCell align="right">Country</TableCell>
+              <TableCell align="right">Place Of Origin</TableCell>
               <TableCell align="right">Price</TableCell>
             </TableRow>
           </TableHead>
