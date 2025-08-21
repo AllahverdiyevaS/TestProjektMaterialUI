@@ -46,7 +46,8 @@ const RegistrationForm: React.FC = () => {
         </Typography>
         <Box component="form" onSubmit={handleSubmit} sx={{ margin: 5 }}>
           <TextField
-            placeholder="Enter Email "
+            label="Email "
+            placeholder="anna@green_garden.com"
             fullWidth
             required
             autoFocus
@@ -71,7 +72,8 @@ const RegistrationForm: React.FC = () => {
             onChange={handleChange}
           />
           <TextField
-            placeholder="Enter password"
+            label="Enter password"
+            placeholder="••••••••••"
             fullWidth
             required
             autoFocus
