@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { Plant } from "../types/Plant";
+import { persist, createJSONStorage } from "zustand/middleware";
 interface PlantState {
   plants: Plant[];
   filter: string;

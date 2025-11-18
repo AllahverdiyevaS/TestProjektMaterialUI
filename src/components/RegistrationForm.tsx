@@ -31,10 +31,10 @@ const RegistrationForm: React.FC = () => {
   return (
     <Container
       sx={{
-        width: { xs: "90%", sm: "70%", md: "40%", lg: "30%" },
+        width: { xs: "90%", sm: "70%", md: "60%", lg: "50%" },
       }}
     >
-      <Paper elevation={5} sx={{ marginTop: 20, paddinbg: 2 }}>
+      <Paper elevation={5} sx={{ margin: 5, paddinbg: 2 }}>
         <Box sx={{ textAlign: "center", mx: "auto", mb: 1 }}>
           <img src={myLogo} alt="Logo" width={40} />
         </Box>
