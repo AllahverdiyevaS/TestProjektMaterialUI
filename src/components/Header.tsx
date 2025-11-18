@@ -35,7 +35,8 @@ const Header = () => {
         <Toolbar>
           <AccountMenu />
           <Button
-            href="/"
+            component={Link}
+            to="/"
             sx={{
               flexGrow: 1,
               display: "flex",
@@ -84,12 +85,18 @@ const Header = () => {
           >
             <MenuItem
               component={Link}
-              to="/components/UserTable"
+              to="/components/PlantsTable"
               onClick={handleClose}
             >
               List of Plants
             </MenuItem>
-            <MenuItem onClick={handleClose}>Calculation</MenuItem>
+            <MenuItem
+              component={Link}
+              to="/components/PlantsList"
+              onClick={handleClose}
+            >
+              Calculation
+            </MenuItem>
           </Menu>
         </Toolbar>
       </AppBar>

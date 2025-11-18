@@ -12,17 +12,33 @@ import {
   Link,
 } from "@mui/material";
 
-type LoginFormValues = { email: string; password: string };
 const RegistrationForm: React.FC = () => {
-  const [values, setValues] = useState<LoginFormValues>({
-    email: "",
-    password: "",
-  });
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValues({
-      ...values,
-      [e.target.name]: e.target.value,
-    });
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState(false);
+  const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState(false);
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+    if (e.target.value.trim() === "") {
+      setEmailError(false);
+    }
+    if (!/^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$/.test(e.target.value)) {
+      setEmailError(true);
+    } else {
+      setEmailError(false);
+    }
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setPassword(value);
+
+    const isValid =
+      value.length >= 8 &&
+      /[!@#$%^&*(),.?":{}|<>]/.test(value) &&
+      /[0-9]/.test(value);
+
+    setPasswordError(!isValid);
   };
 
   const handleSubmit = () => {
@@ -48,6 +64,10 @@ const RegistrationForm: React.FC = () => {
           <TextField
             label="Email "
             placeholder="anna@green_garden.com"
+            value={email}
+            onChange={handleEmailChange}
+            error={emailError}
+            helperText={emailError ? "Invalid email address" : ""}
             fullWidth
             required
             autoFocus
@@ -69,9 +89,15 @@ const RegistrationForm: React.FC = () => {
                 },
               },
             }}
-            onChange={handleChange}
           />
           <TextField
+            onChange={handlePasswordChange}
+            error={passwordError}
+            helperText={
+              passwordError
+                ? "Password must be at least 8 characters, include a number and a special character"
+                : ""
+            }
             label="Enter password"
             placeholder="••••••••••"
             fullWidth
@@ -96,7 +122,6 @@ const RegistrationForm: React.FC = () => {
                 },
               },
             }}
-            onChange={handleChange}
           />
 
           <Button

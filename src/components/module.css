@@ -1,0 +1,16 @@
+.plantsNameHeader {
+  font-size: 24px;
+  padding-left: 20px;
+}
+.removeButton {
+  margin-left: 10px;
+  border: none;
+
+  border-radius: 4px;
+  cursor: pointer;
+}
+.plantsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
