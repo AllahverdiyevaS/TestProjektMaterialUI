@@ -6,7 +6,7 @@ const PlantsList = () => {
   const { plants, removePlant, fetchPlants } = usePlantsStore();
   useEffect(() => {
     fetchPlants?.();
-  }, [fetchPlants]);
+  }, []);
 
   return (
     <>

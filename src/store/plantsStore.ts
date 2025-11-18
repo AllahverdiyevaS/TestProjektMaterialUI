@@ -18,11 +18,14 @@ export const usePlantsStore = create<PlantState>()(
       plants: [],
       filter: "",
       setFilter: (value) => set({ filter: value }),
-      fetchPlants: async () => {
-        const data = await getPlants();
 
-        set({ plants: data });
+      fetchPlants: async () => {
+        if (get().plants.length === 0) {
+          const data = await getPlants();
+          set({ plants: data });
+        }
       },
+
       removePlant: (id) => {
         set((state) => ({
           plants: state.plants.filter((plant) => plant.id !== id),
